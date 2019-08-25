@@ -1,0 +1,10 @@
+{
+  "name": "Give the GIFs to Tumblr",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Brings GIFs back to the Tumblr dashboard instead of WEBPs",
+  "content_scripts": [{
+    "matches": ["*://tumblr.com/dashboard", "*://www.tumblr.com/dashboard"],
+    "js": ["content.js"]
+  }]
+}
