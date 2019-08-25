@@ -8,3 +8,7 @@ This extension tweaks the dashboard to serve GIFs instead of WebP. Unfortunately
 
 - Firefox https://addons.mozilla.org/en-US/firefox/addon/gifsontumblr/
 - Chrome https://chrome.google.com/webstore/detail/ccjbcoflmpghkhenojnpepcdbimhiglf/
+
+# Motivation
+
+This post sheds some light on why this is an awful change for GIFs creator on Tumblr https://bigbadbro.tumblr.com/post/187246453755/hi-everyone-absolutely-awful-news-for-all
