@@ -4,7 +4,10 @@
   "manifest_version": 2,
   "description": "Brings GIFs back to the Tumblr dashboard instead of WEBPs",
   "content_scripts": [{
-    "matches": ["*://tumblr.com/dashboard", "*://www.tumblr.com/dashboard"],
+    "matches": [
+      "*://tumblr.com/dashboard", "*://www.tumblr.com/dashboard",
+      "*://tumblr.com/explore/*", "*://www.tumblr.com/explore/*"
+    ],
     "js": ["content.js"]
   }]
 }
