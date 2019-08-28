@@ -1,12 +1,15 @@
 {
   "name": "GifsOnTumblr",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "manifest_version": 2,
   "description": "Brings GIFs back to the Tumblr dashboard instead of WEBPs",
   "content_scripts": [{
     "matches": [
       "*://tumblr.com/dashboard", "*://www.tumblr.com/dashboard",
-      "*://tumblr.com/explore/*", "*://www.tumblr.com/explore/*"
+      "*://tumblr.com/explore/*", "*://www.tumblr.com/explore/*",
+      "*://tumblr.com/likes/*", "*://www.tumblr.com/likes/*",
+      "*://tumblr.com/likes", "*://www.tumblr.com/likes*",
+      "*://tumblr.com/blog/*", "*://www.tumblr.com/blog/*"
     ],
     "js": ["content.js"]
   }]
