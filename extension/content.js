@@ -28,46 +28,43 @@ function switchLightbox(el) {
   el.setAttribute('data-lightbox', JSON.stringify(lightboxJSON));
 }
 
-const posts = document.querySelector('#posts');
-console.log('posts', posts);
+const posts = document.body;
+
+const isTumblrDashboard =
+  String(window.location).startsWith('https://www.tumblr.com/') ||
+  String(window.location).startsWith('https://tumblr.com/');
+const isTumblrBlog = Boolean(document.querySelector('iframe.tmblr-iframe'));
 
 const onMutation = () => {
   if (!posts) {
     return;
   }
 
-  const GIFsLinks = posts.querySelectorAll(`[href*=".gifv"]`);
-  const GIFSImages = posts.querySelectorAll(`[src*=".gifv"]`);
-  const GIFSDataSrc = posts.querySelectorAll(`[data-src*=".gifv"]`);
+  const possibleAttributes = ['href', 'src', 'data-src'];
 
-  Array.from(GIFsLinks).forEach(el => {
-    switchAttribute(el, 'href');
+  possibleAttributes.forEach(attr => {
+    Array.from(posts.querySelectorAll(`[${attr}*=".gifv"][${attr}*=".media.tumblr."]`)).forEach(
+      el => {
+        switchAttribute(el, attr);
+      }
+    );
   });
 
-  Array.from(GIFSImages).forEach(el => {
-    switchAttribute(el, 'src');
-  });
-  Array.from(GIFSDataSrc).forEach(el => {
-    switchAttribute(el, 'data-src');
-  });
+  // We want to do this only on Tumblr's dashboard
+  if (isTumblrDashboard) {
+    const Slideshows = posts.querySelectorAll('[data-lightbox]');
 
-  const Slideshows = posts.querySelectorAll('[data-lightbox]');
-
-  Array.from(Slideshows).forEach(el => switchLightbox(el));
-
-  console.log({
-    GIFsLinks: GIFsLinks.length,
-    GIFSImages: GIFSImages.length,
-    GIFSDataSrc: GIFSDataSrc.length,
-    Slideshows: Slideshows.length
-  });
+    Array.from(Slideshows).forEach(el => switchLightbox(el));
+  }
 };
 
 const postsObserver = new MutationObserver(onMutation);
 
-postsObserver.observe(posts, {
-  childList: true,
-  subtree: true
-});
+if (isTumblrDashboard || isTumblrBlog) {
+  postsObserver.observe(posts, {
+    childList: true,
+    subtree: true
+  });
 
-onMutation();
+  onMutation();
+}
