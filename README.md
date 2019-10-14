@@ -6,7 +6,6 @@ This extension tweaks the dashboard to serve GIFs instead of WebP. Unfortunately
 
 - Firefox https://addons.mozilla.org/en-US/firefox/addon/gifsontumblr/
 - Chrome https://chrome.google.com/webstore/detail/gifsontumblr/ojdchdecabcmdgloljejooedjpgaajbe
-**30/08/2019 - the Chrome extension was taken down because it was deemed "suspicious" by Google because I forgot to make an icon for it, please use the new link above**
 
 # Motivation
 
