@@ -4,7 +4,7 @@ function switchAttribute(el, attr) {
     return;
   }
 
-  el.setAttribute(attr, currAttr.replace('.gifv', '.gif'));
+  el.setAttribute(attr, currAttr.replace(/\.gifv/g, '.gif'));
 }
 
 function switchLightbox(el) {
@@ -39,8 +39,9 @@ const onMutation = () => {
   if (!posts) {
     return;
   }
+  
 
-  const possibleAttributes = ['href', 'src', 'data-src'];
+  const possibleAttributes = ['href', 'src', 'data-src', 'srcset'];
 
   possibleAttributes.forEach(attr => {
     Array.from(posts.querySelectorAll(`[${attr}*=".gifv"][${attr}*=".media.tumblr."]`)).forEach(
