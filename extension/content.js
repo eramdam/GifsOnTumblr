@@ -33,7 +33,9 @@ const posts = document.body;
 const isTumblrDashboard =
   String(window.location).startsWith('https://www.tumblr.com/') ||
   String(window.location).startsWith('https://tumblr.com/');
-const isTumblrBlog = Boolean(document.querySelector('iframe.tmblr-iframe'));
+const isTumblrBlog =
+  Boolean(document.querySelector('iframe.tmblr-iframe')) ||
+  String(window.location).match(/https:\/\/[\w\W]+\.tumblr\.com\/image\//);
 
 const onMutation = () => {
   if (!posts) {
