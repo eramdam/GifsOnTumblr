@@ -41,13 +41,12 @@ const onMutation = () => {
   if (!posts) {
     return;
   }
-  
 
   const possibleAttributes = ['href', 'src', 'data-src', 'srcset'];
 
-  possibleAttributes.forEach(attr => {
+  possibleAttributes.forEach((attr) => {
     Array.from(posts.querySelectorAll(`[${attr}*=".gifv"][${attr}*=".media.tumblr."]`)).forEach(
-      el => {
+      (el) => {
         switchAttribute(el, attr);
       }
     );
@@ -57,12 +56,16 @@ const onMutation = () => {
   if (isTumblrDashboard) {
     const Slideshows = posts.querySelectorAll('[data-lightbox]');
 
-    Array.from(Slideshows).forEach(el => switchLightbox(el));
+    Array.from(Slideshows).forEach((el) => switchLightbox(el));
   }
 };
 
 const postsObserver = new MutationObserver(onMutation);
 
+console.log({
+  isTumblrDashboard,
+  isTumblrBlog
+});
 if (isTumblrDashboard || isTumblrBlog) {
   postsObserver.observe(posts, {
     childList: true,
