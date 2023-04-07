@@ -62,10 +62,6 @@ const onMutation = () => {
 
 const postsObserver = new MutationObserver(onMutation);
 
-console.log({
-  isTumblrDashboard,
-  isTumblrBlog
-});
 if (isTumblrDashboard || isTumblrBlog) {
   postsObserver.observe(posts, {
     childList: true,
