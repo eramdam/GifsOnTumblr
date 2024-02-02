@@ -1,7 +1,7 @@
 {
   "name": "GifsOnTumblr",
   "version": "1.1.2",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Brings GIFs back to Tumblr blogs/dashboard instead of WEBPs",
   "content_scripts": [
     {
@@ -9,5 +9,5 @@
       "js": ["content.js"]
     }
   ],
-  "permissions": ["<all_urls>"]
+  "host_permissions": ["<all_urls>"]
 }
